@@ -14,6 +14,18 @@ Five canonical roles, label string equal to role name (`needs-triage`, `needs-in
 
 Single-context: `GLOSSARY.md` at the repo root + `docs/adr/`. See `docs/agents/domain.md`.
 
+## Subagents
+
+### code-review skill
+
+Standards 与 Spec 两个子代理都用 `Review`（`.pi/agents/review.md`）派发。
+
+### research 任务
+
+- 调研与探索一律派给 `Explore` 子代理；主线程只下指令和聚合结论，不自己读文件爬代码。
+- 派发时必须在 prompt 里写明「用 codegraph 查」：探索子代理优先调用 codegraph MCP 工具（见 CodeGraph 一节），grep/find/read 只作补充。
+- 探索子代理的产出是结论 + 关键文件行号引用（`file:line`），不是文件转储；不要让它整段贴源码回来。
+
 <!-- CODEGRAPH_START -->
 
 ## CodeGraph
