@@ -39,3 +39,6 @@ node_modules/
 
 # Pi agent state
 .pi/
+
+# CodeGraph index
+.codegraph/
